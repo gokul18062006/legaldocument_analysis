@@ -4,8 +4,8 @@ import { Header } from './components/Header';
 import { DocumentInput } from './components/DocumentInput';
 import { AnalysisOutput } from './components/AnalysisOutput';
 import { ChatInterface } from './components/ChatInterface';
-import type { AnalysisResult, ChatMessage, UploadedFile } from './types';
-import { analyzeDocument, translateText, createChatSession, continueChat } from './services/geminiService';
+import type { AnalysisResult, ChatMessage, UploadedFile } from '../types';
+import { analyzeDocument, translateText, createChatSession, continueChat } from '../backend/services/geminiService';
 import { LANGUAGES } from './constants';
 import { Icon } from './components/Icon';
 

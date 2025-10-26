@@ -1,9 +1,17 @@
 
 import { GoogleGenAI, Type, Chat, Part } from "@google/genai";
-import type { AnalysisResult, UploadedFile } from '../types';
+import type { AnalysisResult, UploadedFile } from '../../types';
 
-// Using the provided API key
-const ai = new GoogleGenAI({ apiKey: "AIzaSyB4Pp9mMh8RPAJe5yz6n_iw-7YYbtJUic4" });
+// Read the API key from environment so we don't hardcode secrets in source.
+// Vite will inject process.env.GEMINI_API_KEY when using loadEnv/define in vite.config.
+const API_KEY = process.env.GEMINI_API_KEY || '';
+if (!API_KEY) {
+    // Warn in development if not set — helps debugging.
+    // It's intentionally a console.warn (not throw) so app can still run in non-AI flows.
+    console.warn('GEMINI_API_KEY is not set. Add it to a .env.local file at the project root or set the environment variable.');
+}
+
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const analysisSchema = {
     type: Type.OBJECT,
