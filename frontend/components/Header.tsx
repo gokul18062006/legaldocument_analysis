@@ -19,10 +19,6 @@ export const Header: React.FC = () => {
                             <p className="text-xs sm:text-sm text-slate-500">Analyze, simplify, and ask questions about legal documents</p>
                         </div>
                     </div>
-                    <div className="hidden md:flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-emerald-700 text-sm font-medium">
-                        <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                        AI ready
-                    </div>
                 </div>
             </div>
         </header>
