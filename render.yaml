@@ -13,11 +13,12 @@ services:
       - key: PORT
         value: "8000"
 
-  - type: static_site
+  - type: web
     name: legalease-frontend
+    runtime: node
     rootDir: .
     buildCommand: npm install && npm run build
-    publishPath: dist
+    startCommand: npm run preview
     envVars:
       - key: VITE_API_BASE_URL
         value: https://legalease-backend.onrender.com
